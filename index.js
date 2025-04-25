@@ -22,21 +22,35 @@ const applicant = {
 }
 
 const personas = [
-    {...applicant, name_last: "Smith"}
-    {...applicant, name_last: "Review"}
+    {...applicant, name_last: "Smith"},
+    {...applicant, name_last: "Review"},
     {...applicant, name_last: "Deny"}
 ]
 
-async function getParameters() {
+async function postEval(person) {
     try {
-        const resp = await axios.get(
-            `${BASE_URL}/parameters`,
-            { auth: {username: token, password: secret} }
-        )
-        console.log(resp.data.required, 'data')
-    } catch (err) {
-        console.log(err, 'err')
+        const resp = await axios.post(
+            `${BASE_URL}/evaluations`,
+            person,
+            { 
+                auth: {username: token, password: secret},
+                headers: {
+                    "Content-Type": "application/json",
+                }
+            
+            }
+        );
+        console.log(resp.data, 'data')
+
+    const result = resp.data?.summary?.outcome;
+    console.log(result, 'result')
+
+    }
+
+    catch (err) {
+    console.log(err, 'err')
     }
 }
 
-  getParameters();
+
+postEval(applicant)
