@@ -1,7 +1,5 @@
 # Alloy-Assignment
 
-# Alloy-Sandbox Demo
-
 A tiny Node.js script that demonstrates how a bank could integrate with **Alloy’s
 Evaluation API** to automate applicant decisions and minimise manual reviews.
 
