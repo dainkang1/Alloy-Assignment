@@ -4,8 +4,8 @@ import process from 'process'
 import axios from 'axios';
 
 const BASE_URL = "https://sandbox.alloy.co/v1"
-const token = process.env.DAIN_TOKEN;
-const secret = process.env.DAIN_SECRET;
+const token = process.env.ALLOY_TOKEN;
+const secret = process.env.ALLOY_SECRET;
 
 const applicant = {
     name_first: "Dain",
